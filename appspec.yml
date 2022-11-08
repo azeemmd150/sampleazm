@@ -1,0 +1,28 @@
+# Do not change this file. 
+# This is an AWS Code Deploy appspec.yml file
+
+version: 0.0
+os: linux
+
+files:
+  - source: /
+    destination: /home/ubuntu/<app-name>/
+
+permissions:
+  - object: /
+    pattern: "**"
+    owner: ubuntu
+    group: ubuntu
+
+hooks:
+  
+  InstallDependencies:
+    - location: scripts/install_dependencies.sh
+      timeout: 300
+      runas: root
+
+  ApplicationStart:
+    - location: scripts/application_start.sh
+      timeout: 300
+      runas: root
+
