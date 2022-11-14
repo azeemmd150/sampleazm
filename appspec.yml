@@ -3,6 +3,11 @@ os: linux
 files:
   - source: /
     destination: /home/ubuntu
+permissions:
+  - object: /home/ubuntu
+    owner: root
+    group: root
+    mode: 777
 hooks:
   ApplicationStart:
     - location: scripts/start_server.sh
