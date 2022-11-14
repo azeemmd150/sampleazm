@@ -1,3 +1,3 @@
 #!/bin/bash
-service apache2 start
+node index.js
 
